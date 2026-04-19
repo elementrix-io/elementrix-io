@@ -90,8 +90,6 @@ Important this file has to be modified before init the scripts
 
 Clone the platform commponant via 
 
-git clone https://digitalforrest@dev.azure.com/digitalforrest/Elementrix/_git/elementrix.io
-
 once clone done run 
 
 cd elementrix-setup
