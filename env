@@ -21,14 +21,6 @@ KYC_PASSWORD:admin
 KC_CLIENT_ID:admin-service
 KC_CLIENT_SECRET:QemIfcSGizTKvmY8djQjUj38mRsLNqwL
 #mail Service
-EMAIL_HOST:smtp.gmail.com
-EMAIL_PORT:587
-EMAIL_USER_NAME:moh.magdy.abden2016@gmail.com
-EMAIL_PASSWORD:fhpfkpgvnqdtfqow
-EMAIL_FROM:moh.magdy.abden2016@gmail.com
-JWT_SECRET_KEY:&cN>e8o!jW_g1yy<8NXiWMT>Q5[Vf#
-####
-#mail Service
 SPRING_MAIL_HOST=##################
 SPRING_MAIL_PORT=##########
 SPRING_MAIL_USERNAME=###########
