@@ -1,0 +1,338 @@
+#Eureka
+EUREKA_URL:http://eureka-server:9061/eureka/
+EUREKA_IP:localhost
+#Postgres-DP
+DB_URL:jdbc:postgresql://postgres:5432/elementrix
+DB_USER_NAME:elementrix
+DB_PASSWORD:"ewlet123$5EL"
+DB_SCHEMA:elementrix
+#Elasticsearch
+ES_URLS:http://elasticsearch:9200
+ES_USER_NAME:elastic
+ES_PASSWORD:sdf-110-dwt
+#kafka
+KAFKA_URLS:kafka:29092
+spring.kafka.bootstrap-servers:kafka:29092
+#keycloak
+KC_URL:http://keycloak:8080
+KC_REALM:elementrix
+KYC_USERNAME:admin
+KYC_PASSWORD:admin
+KC_CLIENT_ID:admin-service
+KC_CLIENT_SECRET:QemIfcSGizTKvmY8djQjUj38mRsLNqwL
+#mail Service
+EMAIL_HOST:smtp.gmail.com
+EMAIL_PORT:587
+EMAIL_USER_NAME:moh.magdy.abden2016@gmail.com
+EMAIL_PASSWORD:fhpfkpgvnqdtfqow
+EMAIL_FROM:moh.magdy.abden2016@gmail.com
+JWT_SECRET_KEY:&cN>e8o!jW_g1yy<8NXiWMT>Q5[Vf#
+####
+#mail Service
+SPRING_MAIL_HOST=smtp.office365.com
+SPRING_MAIL_PORT=587
+SPRING_MAIL_USERNAME=noreply@digitalforrest.me
+SPRING_MAIL_PASSWORD=Digital_forrest@2027
+SPRING_MAIL_FROM=noreply@digitalforrest.me
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_REQUIRED=true
+SPRING_MAIL_PROPERTIES_MAIL_SMTP_SSL_PROTOCOLS=TLSv1.2
+###
+ALLOWED_DOMAIN:digitalforrest-me.com
+KC_CLIENT_ID:admin-service
+KC_CLIENT_SECRET:mYutqNt7EAjktF12wTmUJCqwIpiiR6HA
+REGISTRATION_LINK:http://localhost:80/register
+keycloak.admin.client-id: admin-service
+keycloak.admin.client-secret: mYutqNt7EAjktF12wTmUJCqwIpiiR6HA
+keycloak.registration.flow=registration-with-domain-restriction
+#REDIS_URL
+REDIS_URL:redis://:fLnZNHY9V@redis:6379
+PRIVILEGES_CACHE_PREFIX:user:privileges:
+PRIVILEGES_CACHE_TTL_MINUTES:60
+#debezium.connectors.base-url
+DEBEZIUM_URL:http://connect:8083/
+############
+predefined.tags[0]:Public
+predefined.tags[1]:Internal
+predefined.tags[2]:Confidential
+predefined.tags[3]:Restricted
+predefined.tags[4]:Highly Restricted
+predefined.tags[5]:PII (Personally Identifiable Information)
+predefined.tags[6]:PHI (Protected Health Information)
+predefined.tags[7]:PCI (Payment Card Information)
+predefined.tags[8]:Financial Sensitive
+predefined.tags[9]:Regulated Data
+predefined.tags[10]:Client-Specific Data
+predefined.tags[11]:Partner Data
+predefined.tags[12]:Secret (Gov/Defense environments)
+predefined.tags[13]:GDPR-Relevant
+predefined.tags[14]:HIPAA-Relevant
+predefined.tags[15]:SOX-Controlled
+predefined.tags[16]:BCBS-239
+predefined.tags[17]:Basel II / III
+predefined.tags[18]:KSA-PDPL-Relevant
+predefined.tags[19]:ISO-27001 Controlled
+predefined.tags[20]:Audit-Critical
+predefined.tags[21]:Retention-Required
+predefined.tags[22]:Draft
+predefined.tags[23]:Submitted
+predefined.tags[24]:Approved
+predefined.tags[25]:Published
+predefined.tags[26]:Deprecated
+predefined.tags[27]:Retired
+predefined.domains[0].name:customer-data
+predefined.domains[0].path:party/customer
+predefined.domains[0].description:Data about individuals or organizations that purchase or use the enterprise's products or services.
+predefined.domains[0].name:Customer
+predefined.domains[0].path:customer
+predefined.domains[0].description:Domain covering customer profiles, interactions, segmentation, and lifecycle information.
+predefined.domains[1].name:Product
+predefined.domains[1].path:product
+predefined.domains[1].description:Domain including product definitions, attributes, hierarchies, and lifecycle details.
+predefined.domains[2].name:Supplier
+predefined.domains[2].path:supplier
+predefined.domains[2].description:Domain related to vendor entities, supplier relationships, contracts, and sourcing data.
+predefined.domains[3].name:Finance
+predefined.domains[3].path:finance
+predefined.domains[3].description:Domain covering financial records, accounting structures, ledgers, and monetary transactions.
+predefined.domains[4].name:HR
+predefined.domains[4].path:hr
+predefined.domains[4].description:Domain containing employee data, organizational structures, job roles, and workforce management.
+predefined.domains[5].name:Operations
+predefined.domains[5].path:operations
+predefined.domains[5].description:Domain focused on operational processes, resource management, workflows, and execution data.
+predefined.domains[6].name:Compliance
+predefined.domains[6].path:compliance
+predefined.domains[6].description:Domain involving regulatory adherence, control frameworks, and compliance-related records.
+predefined.domains[7].name:Geospatial
+predefined.domains[7].path:geospatial
+predefined.domains[7].description:Domain related to geographic data, spatial mapping, coordinates, and location-based analytics.
+predefined.domains[8].name:Risk
+predefined.domains[8].path:risk
+predefined.domains[8].description:Domain covering risk assessments, scoring models, risk events, and mitigation controls.
+predefined.domains[9].name:Payments
+predefined.domains[9].path:payments
+predefined.domains[9].description:Domain involving payment transactions, settlement data, payment methods, and processing flows.
+predefined.domains[10].name:Logistics
+predefined.domains[10].path:logistics
+predefined.domains[10].description:Domain covering shipping, warehousing, transportation, tracking, and supply chain flows.
+predefined.semantics[0].name:Metadata Semantics collection
+predefined.semantics[0].description:Standard information-classification levels used to label sensitivity, confidentiality, and handling requirements.
+predefined.semantics[0].terms[0].name:Public
+predefined.semantics[0].terms[0].definition:Information authorized for public release with no confidentiality restrictions.
+predefined.semantics[0].terms[0].tags[0]:classification
+predefined.semantics[0].terms[0].tags[1]:low sensitivity
+predefined.semantics[0].terms[0].synonyms[0]:Open Data
+predefined.semantics[0].terms[0].synonyms[1]:Public Information
+predefined.semantics[0].terms[1].name:Internal
+predefined.semantics[0].terms[1].definition:Information intended for internal organizational use but not harmful if disclosed.
+predefined.semantics[0].terms[1].tags[0]:classification
+predefined.semantics[0].terms[1].tags[1]:internal use
+predefined.semantics[0].terms[1].synonyms[0]:Internal Use Only
+predefined.semantics[0].terms[2].name:Confidential
+predefined.semantics[0].terms[2].definition:Information that requires protection from unauthorized access due to business or regulatory reasons.
+predefined.semantics[0].terms[2].tags[0]:classification
+predefined.semantics[0].terms[2].tags[1]:sensitive data
+predefined.semantics[0].terms[2].synonyms[0]:Sensitive
+predefined.semantics[0].terms[2].synonyms[1]:Private
+predefined.semantics[0].terms[3].name:Restricted
+predefined.semantics[0].terms[3].definition:Information requiring strict access controls because unauthorized disclosure could cause significant harm.
+predefined.semantics[0].terms[3].tags[0]:classification
+predefined.semantics[0].terms[3].tags[1]:high sensitivity
+predefined.semantics[0].terms[3].synonyms[0]:Restricted Access
+predefined.semantics[0].terms[4].name:Highly Restricted
+predefined.semantics[0].terms[4].definition:Information accessible only to a very limited number of authorized individuals due to critical risk if disclosed.
+predefined.semantics[0].terms[4].tags[0]:classification
+predefined.semantics[0].terms[4].tags[1]:critical sensitivity
+predefined.semantics[0].terms[4].synonyms[0]:Top-Restricted
+predefined.semantics[0].terms[4].synonyms[1]:Highly Sensitive
+predefined.semantics[0].terms[5].name:PII (Personally Identifiable Information)
+predefined.semantics[0].terms[5].definition:Any information that can identify a specific individual, either directly or indirectly.
+predefined.semantics[0].terms[5].tags[0]:data privacy
+predefined.semantics[0].terms[5].tags[1]:identity data
+predefined.semantics[0].terms[5].tags[2]:sensitive
+predefined.semantics[0].terms[5].synonyms[0]:Personal Data
+predefined.semantics[0].terms[6].name:PHI (Protected Health Information)
+predefined.semantics[0].terms[6].definition:Individually identifiable health information protected under healthcare privacy laws.
+predefined.semantics[0].terms[6].tags[0]:health data
+predefined.semantics[0].terms[6].tags[1]:privacy
+predefined.semantics[0].terms[6].tags[2]:sensitive
+predefined.semantics[0].terms[6].synonyms[0]:Health Data
+predefined.semantics[0].terms[6].synonyms[1]:Medical Information
+predefined.semantics[0].terms[7].name:PCI (Payment Card Information)
+predefined.semantics[0].terms[7].definition:Cardholder data protected under PCI-DSS, such as card numbers, CVV, and expiration dates.
+predefined.semantics[0].terms[7].tags[0]:finance
+predefined.semantics[0].terms[7].tags[1]:payment security
+predefined.semantics[0].terms[7].synonyms[0]:Cardholder Data
+predefined.semantics[0].terms[7].synonyms[1]:PCI Data
+predefined.semantics[0].terms[8].name:Financial Sensitive
+predefined.semantics[0].terms[8].definition:Financial information that could lead to loss or fraud if exposed.
+predefined.semantics[0].terms[8].tags[0]:finance
+predefined.semantics[0].terms[8].tags[1]:sensitive
+predefined.semantics[0].terms[8].synonyms[0]:Sensitive Financial Data
+predefined.semantics[0].terms[9].name:Regulated Data
+predefined.semantics[0].terms[9].definition:Any information governed by laws or regulations requiring specific handling or protection.
+predefined.semantics[0].terms[9].tags[0]:compliance
+predefined.semantics[0].terms[9].tags[1]:regulated
+predefined.semantics[0].terms[9].synonyms[0]:Compliance-Controlled Data
+predefined.semantics[0].terms[10].name:Client-Specific Data
+predefined.semantics[0].terms[10].definition:Information associated with a specific client and governed by contractual confidentiality.
+predefined.semantics[0].terms[10].tags[0]:client data
+predefined.semantics[0].terms[10].tags[1]:business sensitive
+predefined.semantics[0].terms[10].synonyms[0]:Customer Data
+predefined.semantics[0].terms[10].synonyms[1]:Client Confidential Data
+predefined.semantics[0].terms[11].name:Partner Data
+predefined.semantics[0].terms[11].definition:Information shared with or originating from business partners and requiring joint protection.
+predefined.semantics[0].terms[11].tags[0]:partner data
+predefined.semantics[0].terms[11].tags[1]:shared data
+predefined.semantics[0].terms[11].synonyms[0]:Third-Party Data
+predefined.semantics[0].terms[12].name:Secret (Gov/Defense environments)
+predefined.semantics[0].terms[12].definition:Classified government or defense information requiring strict national-security-level controls.
+predefined.semantics[0].terms[12].tags[0]:government classified
+predefined.semantics[0].terms[12].tags[1]:defense
+predefined.semantics[0].terms[12].synonyms[0]:Classified
+predefined.semantics[0].terms[12].synonyms[1]:Secret-Level Data
+predefined.semantics[1].name:Regulatory & Compliance
+predefined.semantics[1].description:Regulatory frameworks and compliance obligations applicable to data, systems, or business operations.
+predefined.semantics[1].terms[0].name:GDPR-Relevant
+predefined.semantics[1].terms[0].definition:Information subject to the General Data Protection Regulation governing personal data of individuals in the EU.
+predefined.semantics[1].terms[0].tags[0]:GDPR
+predefined.semantics[1].terms[0].tags[1]:privacy
+predefined.semantics[1].terms[0].tags[2]:regulation
+predefined.semantics[1].terms[0].synonyms[0]:GDPR Data
+predefined.semantics[1].terms[1].name:HIPAA-Relevant
+predefined.semantics[1].terms[1].definition:Information regulated under the U.S. Health Insurance Portability and Accountability Act, primarily PHI.
+predefined.semantics[1].terms[1].tags[0]:HIPAA
+predefined.semantics[1].terms[1].tags[1]:health data
+predefined.semantics[1].terms[1].tags[2]:compliance
+predefined.semantics[1].terms[1].synonyms[0]:HIPAA Data
+predefined.semantics[1].terms[2].name:SOX-Controlled
+predefined.semantics[1].terms[2].definition:Financial or operational records subject to the Sarbanes–Oxley Act’s audit and retention controls.
+predefined.semantics[1].terms[2].tags[0]:SOX
+predefined.semantics[1].terms[2].tags[1]:financial compliance
+predefined.semantics[1].terms[2].synonyms[0]:SOX Data
+predefined.semantics[1].terms[3].name:BCBS-239
+predefined.semantics[1].terms[3].definition:Risk data governed by the Basel Committee’s principles for effective risk data aggregation and reporting.
+predefined.semantics[1].terms[3].tags[0]:banking
+predefined.semantics[1].terms[3].tags[1]:risk management
+predefined.semantics[1].terms[3].synonyms[0]:Risk Data Aggregation
+predefined.semantics[1].terms[4].name:Basel II / III
+predefined.semantics[1].terms[4].definition:Banking regulatory frameworks defining capital, liquidity, and risk requirements.
+predefined.semantics[1].terms[4].tags[0]:banking
+predefined.semantics[1].terms[4].tags[1]:risk compliance
+predefined.semantics[1].terms[4].synonyms[0]:Basel Framework
+predefined.semantics[1].terms[5].name:KSA-PDPL-Relevant
+predefined.semantics[1].terms[5].definition:Information regulated under the Saudi Personal Data Protection Law.
+predefined.semantics[1].terms[5].tags[0]:PDPL
+predefined.semantics[1].terms[5].tags[1]:privacy
+predefined.semantics[1].terms[5].tags[2]:KSA regulation
+predefined.semantics[1].terms[5].synonyms[0]:Saudi PDPL Data
+predefined.semantics[1].terms[6].name:ISO-27001 Controlled
+predefined.semantics[1].terms[6].definition:Information managed under ISO/IEC 27001 controls for information security management.
+predefined.semantics[1].terms[6].tags[0]:ISO-27001
+predefined.semantics[1].terms[6].tags[1]:security controls
+predefined.semantics[1].terms[6].synonyms[0]:ISMS Controlled Data
+predefined.semantics[1].terms[7].name:Audit-Critical
+predefined.semantics[1].terms[7].definition:Data essential for audit evidence, verification, and compliance review.
+predefined.semantics[1].terms[7].tags[0]:audit
+predefined.semantics[1].terms[7].tags[1]:compliance
+predefined.semantics[1].terms[7].synonyms[0]:Audit Evidence Data
+predefined.semantics[1].terms[8].name:Retention-Required
+predefined.semantics[1].terms[8].definition:Information that must be stored for a mandatory duration due to legal or business rules.
+predefined.semantics[1].terms[8].tags[0]:records management
+predefined.semantics[1].terms[8].tags[1]:retention
+predefined.semantics[1].terms[8].synonyms[0]:Mandatory Retention Data
+predefined.semantics[2].name:Data semantics
+predefined.semantics[2].description:Semantic types describing the meaning, category, or structural role of specific data elements.
+predefined.semantics[2].terms[0].name:Auto populated
+predefined.semantics[2].terms[0].definition:A field automatically generated by the system without manual input.
+predefined.semantics[2].terms[0].tags[0]:system generated
+predefined.semantics[2].terms[0].tags[1]:data behavior
+predefined.semantics[2].terms[0].synonyms[0]:System-Generated
+predefined.semantics[2].terms[1].name:Status Code
+predefined.semantics[2].terms[1].definition:A code representing the state or condition of a record or process.
+predefined.semantics[2].terms[1].tags[0]:code
+predefined.semantics[2].terms[1].tags[1]:status
+predefined.semantics[2].terms[1].synonyms[0]:Status Code
+predefined.semantics[2].terms[2].name:Category
+predefined.semantics[2].terms[2].definition:A high-level grouping used to classify items or data elements.
+predefined.semantics[2].terms[2].tags[0]:taxonomy
+predefined.semantics[2].terms[2].tags[1]:classification
+predefined.semantics[2].terms[2].synonyms[0]:Classification
+predefined.semantics[2].terms[3].name:Enum
+predefined.semantics[2].terms[3].definition:A predefined list of allowed values for a field.
+predefined.semantics[2].terms[3].tags[0]:enumeration
+predefined.semantics[2].terms[3].tags[1]:allowed values
+predefined.semantics[2].terms[3].synonyms[0]:Enumeration
+predefined.semantics[2].terms[4].name:Region
+predefined.semantics[2].terms[4].definition:A geographic area used to group countries, markets, or operational zones.
+predefined.semantics[2].terms[4].tags[0]:geography
+predefined.semantics[2].terms[4].tags[1]:location
+predefined.semantics[2].terms[4].synonyms[0]:Geographical Region
+predefined.semantics[2].terms[5].name:Identifier (ID, Code, Key)
+predefined.semantics[2].terms[5].definition:A unique value used to distinguish a specific record or entity.
+predefined.semantics[2].terms[5].tags[0]:identifier
+predefined.semantics[2].terms[5].tags[1]:primary key
+predefined.semantics[2].terms[5].synonyms[0]:ID
+predefined.semantics[2].terms[5].synonyms[1]:Key
+predefined.semantics[2].terms[5].synonyms[2]:Unique Identifier
+predefined.semantics[2].terms[6].name:Subcategory
+predefined.semantics[2].terms[6].definition:A more specific grouping within a broader category.
+predefined.semantics[2].terms[6].tags[0]:taxonomy
+predefined.semantics[2].terms[6].synonyms[0]:Sub-classification
+predefined.semantics[2].terms[7].name:Type Code
+predefined.semantics[2].terms[7].definition:A coded value used to identify a type or classification of data.
+predefined.semantics[2].terms[7].tags[0]:code
+predefined.semantics[2].terms[7].tags[1]:classification
+predefined.semantics[2].terms[7].synonyms[0]:Type Identifier
+predefined.semantics[2].terms[8].name:Priority Level
+predefined.semantics[2].terms[8].definition:A value indicating the urgency or importance of an item.
+predefined.semantics[2].terms[8].tags[0]:priority
+predefined.semantics[2].terms[8].tags[1]:ranking
+predefined.semantics[2].terms[8].synonyms[0]:Priority
+predefined.semantics[2].terms[9].name:Region / Geography
+predefined.semantics[2].terms[9].definition:A data element indicating geographic grouping or segmentation.
+predefined.semantics[2].terms[9].tags[0]:geography
+predefined.semantics[2].terms[9].tags[1]:location
+predefined.semantics[2].terms[9].synonyms[0]:Geographic Region
+predefined.semantics[2].terms[10].name:Currency
+predefined.semantics[2].terms[10].definition:A code representing monetary units used in financial transactions (e.g., USD, EUR).
+predefined.semantics[2].terms[10].tags[0]:finance
+predefined.semantics[2].terms[10].tags[1]:monetary
+predefined.semantics[2].terms[10].synonyms[0]:Currency Code
+predefined.semantics[2].terms[11].name:Metric
+predefined.semantics[2].terms[11].definition:A quantifiable measure used for performance, analytics, or reporting.
+predefined.semantics[2].terms[11].tags[0]:measurement
+predefined.semantics[2].terms[11].tags[1]:analytics
+predefined.semantics[2].terms[11].synonyms[0]:Measure
+predefined.semantics[2].terms[11].synonyms[1]:KPI
+predefined.semantics[2].terms[12].name:Reference Data
+predefined.semantics[2].terms[12].definition:Stable, non-transactional data used across systems for consistency and lookup.
+predefined.semantics[2].terms[12].tags[0]:reference
+predefined.semantics[2].terms[12].tags[1]:masterdata
+predefined.semantics[2].terms[12].synonyms[0]:Lookup Data
+predefined.semantics[2].terms[13].name:Master Data
+predefined.semantics[2].terms[13].definition:Core business entities that remain consistent across applications (e.g., customer, product).
+predefined.semantics[2].terms[13].tags[0]:masterdata
+predefined.semantics[2].terms[13].tags[1]:core data
+predefined.semantics[2].terms[13].synonyms[0]:Golden Record
+predefined.semantics[2].terms[13].synonyms[1]:Core Entity Data
+predefined.semantics[2].terms[14].name:Transaction Code
+predefined.semantics[2].terms[14].definition:A code representing a type of transaction or business event.
+predefined.semantics[2].terms[14].tags[0]:transaction
+predefined.semantics[2].terms[14].tags[1]:code
+predefined.semantics[2].terms[14].synonyms[0]:Txn Code
+predefined.sysowner.username:sysowner@digitalforrest-me.com
+predefined.sysowner.firstname:sysowner
+predefined.sysowner.lastname:sysowner
+predefined.sysowner.email:sysowner@digitalforrest-me.com
+####
+app.frontend.homepage=http://localhost:80/
+app.demo.enabled=true
+predefined.sysowner.firstName:sysowner
+predefined.sysowner.lastName:sysowner
+KC_URL_PUB:http://localhost:8080
+app.license.public-key=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0B8vZrY5xxbQNh8V1Fka1qr2lnaEKNdrsd9QjaCwO45cf3nkCRnMT700iRUSEQ63SK8vgL77SUt5qQoLRFwxz/Ul7IetrOUblYDqzX9OP2i4i/AiIEbthc5yozedejiyn2ZMA9kDPoCdBFN4fZzpgNnSUUekctH2F0N+wlgMXUMMv1XTySTIjO6+xKeRHeSg/w+fH1/UCwAaE6xdHgU4QfZUjXE5A6548XzzKSjTtofPcUenCoM6W4LxS/2j3QWSjwLRGbweLGWpiSbnyigM7ymqoKYGKvsv77JFPg0q4JJSE7Cqe6eDKS0u0aq5MoZZ8i0UtZ+2464nkAXFVmJhNwIDAQAB
+DATA_ELEMENT_PORTAL_URL=http://localhost   ##has to be change to your machine ip
+APP_LICENSE_STORAGE_PATH=/app/license
