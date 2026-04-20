@@ -1,0 +1,205 @@
+services:
+  eureka-server:
+    image: elementrix.azurecr.io/eureka-server:v1
+    container_name: eureka-server
+    restart: unless-stopped
+    ports:
+      - "9061:9061"
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 9061"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 20s
+
+  admin:
+    image: elementrix.azurecr.io/admin:demo
+    container_name: admin
+    restart: unless-stopped
+    ports:
+      - "9062:9062"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    volumes:
+      - /etc/machine-id:/etc/machine-id:ro
+      - license-data:/app/license
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  notification:
+    image: elementrix.azurecr.io/notification:demo
+    container_name: notification
+    restart: unless-stopped
+    ports:
+      - "9066"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  fetcher:
+    image: elementrix.azurecr.io/fetcher:demo
+    container_name: fetcher
+    restart: unless-stopped
+    ports:
+      - "9064:9064"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  job-module:
+    image: elementrix.azurecr.io/job-module:demo
+    container_name: job-module
+    restart: unless-stopped
+    ports:
+      - "9065"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+
+  ingestion-module:
+    image: elementrix.azurecr.io/ingestion-module:demo
+    container_name: ingestion-module
+    restart: unless-stopped
+    ports:
+      - "9067"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+
+  acess-control:
+    image: elementrix.azurecr.io/acess-control:demo
+    container_name: acess-control
+    restart: unless-stopped
+    ports:
+      - "9063:9063"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+      admin: { condition: service_started }
+    env_file:
+      - .env
+    environment:
+      JAVA_OPTS: "-XX:+UseContainerSupport -Xms256m -Xmx512m"
+    networks:
+      - elementrix
+
+  web-portal:
+    image: elementrix.azurecr.io/web-portal:demo
+    container_name: web-portal
+    restart: unless-stopped
+# Add this line to skip the internal setup script:
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    ports:
+      - "80:80"
+    env_file:
+      - .env.frontend
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      acess-control: { condition: service_started }
+    networks:
+      - elementrix
+
+  worker:
+    image: elementrix.azurecr.io/worker:demo
+    container_name: worker
+    restart: unless-stopped
+    ports:
+      - "9068:9068"
+    depends_on:
+      postgres: { condition: service_healthy }
+      kafka: { condition: service_healthy }
+      redis: { condition: service_healthy }
+      elasticsearch: { condition: service_healthy }
+      keycloak: { condition: service_healthy }
+      connect: { condition: service_healthy }
+      eureka-server: { condition: service_healthy }
+    env_file:
+      - .env
+    networks:
+      - elementrix
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+volumes:
+  license-data:
+
+networks:
+  elementrix:
+    name: elementrix
+    external: true
