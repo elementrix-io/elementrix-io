@@ -83,12 +83,28 @@ DATA_ELEMENT_PORTAL_URL=http://localhost change localhost to your machine ip
 - `nginx.conf`: Nginx configuration file for reverse proxy.
 Important this file has to be modified before init the scripts
 - `.env.frontend`: it contain the web-portal url and has to be change from 127.0.0.1 to your local machine ip.
+- update your (`smtp credentials`, `API_BASE_URL`, `allowed domains`, etc.) in the `.env` file.
+- prepare your data sources using this guide: https://docs.elementrix.io/en/debezium-guide
+- after creating new data sources and application, please allow 5 minutes so all data sources and applications are fully cached.
 
 ## Deployment Steps
+
+### 1. Registry Login
+
+the images are hosted on a private registry (`elementrix.azurecr.io`), log in first:
+
+```bash
+docker login elementrix.azurecr.io
+Username:<registry-username>
+Password:<registry-password>
+you must see successfully login message
+```
 
 ## ▶️ Deployment Instructions
 
 Clone the platform commponant via 
+
+git clone https://digitalforrest@dev.azure.com/digitalforrest/Elementrix/_git/elementrix.io
 
 once clone done run 
 
@@ -104,6 +120,8 @@ chmod +x elementrix-install.sh
 ```bash
 ./elementrix-install.sh
 ```
+
+Please allow 5 minutes after finishing the installation script so all services can fully start.
 
 
 ## Access Points

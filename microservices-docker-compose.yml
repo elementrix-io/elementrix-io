@@ -1,6 +1,6 @@
 services:
   eureka-server:
-    image: elementrix.azurecr.io/eureka-server:v1
+    image: elementrix.azurecr.io/eureka-server:latest
     container_name: eureka-server
     restart: unless-stopped
     ports:
@@ -17,7 +17,7 @@ services:
       start_period: 20s
 
   admin:
-    image: elementrix.azurecr.io/admin:demo
+    image: elementrix.azurecr.io/admin:latest
     container_name: admin
     restart: unless-stopped
     ports:
@@ -44,7 +44,7 @@ services:
         max-file: "3"
 
   notification:
-    image: elementrix.azurecr.io/notification:demo
+    image: elementrix.azurecr.io/notification:latest
     container_name: notification
     restart: unless-stopped
     ports:
@@ -68,7 +68,7 @@ services:
         max-file: "3"
 
   fetcher:
-    image: elementrix.azurecr.io/fetcher:demo
+    image: elementrix.azurecr.io/fetcher:latest
     container_name: fetcher
     restart: unless-stopped
     ports:
@@ -92,7 +92,7 @@ services:
         max-file: "3"
 
   job-module:
-    image: elementrix.azurecr.io/job-module:demo
+    image: elementrix.azurecr.io/job-module:latest
     container_name: job-module
     restart: unless-stopped
     ports:
@@ -111,7 +111,7 @@ services:
       - elementrix
 
   ingestion-module:
-    image: elementrix.azurecr.io/ingestion-module:demo
+    image: elementrix.azurecr.io/ingestion-module:latest
     container_name: ingestion-module
     restart: unless-stopped
     ports:
@@ -135,7 +135,7 @@ services:
         max-file: "3"
 
   acess-control:
-    image: elementrix.azurecr.io/acess-control:demo
+    image: elementrix.azurecr.io/acess-control:latest
     container_name: acess-control
     restart: unless-stopped
     ports:
@@ -157,7 +157,7 @@ services:
       - elementrix
 
   web-portal:
-    image: elementrix.azurecr.io/web-portal:demo
+    image: elementrix.azurecr.io/web-portal:latest
     container_name: web-portal
     restart: unless-stopped
 # Add this line to skip the internal setup script:
@@ -174,7 +174,7 @@ services:
       - elementrix
 
   worker:
-    image: elementrix.azurecr.io/worker:demo
+    image: elementrix.azurecr.io/worker:latest
     container_name: worker
     restart: unless-stopped
     ports:
@@ -196,6 +196,7 @@ services:
       options:
         max-size: "50m"
         max-file: "3"
+
 volumes:
   license-data:
 
