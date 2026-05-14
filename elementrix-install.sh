@@ -19,7 +19,8 @@ echo ""
 
 # Start Docker Compose
 docker compose -f services-docker-compose.yml \
-               -f microservices-docker-compose.yml up -d
+               -f microservices-docker-compose.yml \
+               -f monitoring-stack/docker-compose.yml up -d
 
 echo ""
 echo "⏳ Containers are starting..."
@@ -47,6 +48,10 @@ echo -e "${GREEN}✅ ELEMENTRIX PLATFORM IS READY${NC}"
 echo ""
 echo "🌐 Access URL:"
 echo "   http://$SERVER_IP:80"
+echo "🌐 Access Grafana URL:"
+echo "   http://$SERVER_IP:3000"
+echo "🌐 Access Prometheus URL:"
+echo "   http://$SERVER_IP:9090"
 echo ""
 echo "📅 Started at: $(date)"
 echo ""

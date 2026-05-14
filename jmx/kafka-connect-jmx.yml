@@ -1,0 +1,99 @@
+startDelaySeconds: 0
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+rules:
+  # Kafka Connect - source-record-write-total (explicit fixed name)
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>source-record-write-total"
+    name: kafka_connect_source_record_write_total
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect - source-record-poll-total
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>source-record-poll-total"
+    name: kafka_connect_source_record_poll_total
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect - source-record-write-rate
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>source-record-write-rate"
+    name: kafka_connect_source_record_write_rate
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect - source-record-poll-rate
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>source-record-poll-rate"
+    name: kafka_connect_source_record_poll_rate
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect - poll-batch-avg-time-ms
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>poll-batch-avg-time-ms"
+    name: kafka_connect_source_record_poll_batch_avg_time_ms
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect - poll-batch-max-time-ms
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>poll-batch-max-time-ms"
+    name: kafka_connect_source_record_poll_batch_max_time_ms
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect source-task-metrics generic fallback (explicit name prevents value bleed)
+  - pattern: "kafka.connect<type=source-task-metrics, connector=(.+), task=(.+)><>(.+)"
+    name: kafka_connect_source_task_$3
+    labels:
+      connector: "$1"
+      task: "$2"
+
+  # Kafka Connect generic worker metrics
+  - pattern: "kafka.connect<type=(.+), name=(.+)><>(.+)"
+    name: kafka_connect_$1_$3
+    labels:
+      name: "$2"
+
+  # Debezium - MilliSecondsSinceLastEvent (explicit snake_case name)
+  - pattern: "debezium\\.(.+)<type=connector-metrics, context=(.+), server=(.+)><>MilliSecondsSinceLastEvent"
+    name: debezium_milliseconds_since_last_event
+    labels:
+      connector: "$3"
+      context: "$2"
+      plugin: "$1"
+
+  # Debezium - MilliSecondsBehindSource
+  - pattern: "debezium\\.(.+)<type=connector-metrics, context=(.+), server=(.+)><>MilliSecondsBehindSource"
+    name: debezium_milliseconds_behind_source
+    labels:
+      connector: "$3"
+      context: "$2"
+      plugin: "$1"
+
+  # Debezium - TotalNumberOfEventsSeen
+  - pattern: "debezium\\.(.+)<type=connector-metrics, context=(.+), server=(.+)><>TotalNumberOfEventsSeen"
+    name: debezium_total_number_of_events_seen
+    labels:
+      connector: "$3"
+      context: "$2"
+      plugin: "$1"
+
+  # Debezium connector metrics - generic fallback
+  - pattern: "debezium\\.(.+)<type=connector-metrics, context=(.+), server=(.+)><>([^:]+)"
+    name: debezium_$4
+    labels:
+      connector: "$3"
+      context: "$2"
+      plugin: "$1"
+
+  # Debezium task metrics
+  - pattern: "debezium\\.(.+)<type=connector-task-metrics, context=(.+), server=(.+), task=(.+)><>([^:]+)"
+    name: debezium_task_$5
+    labels:
+      connector: "$3"
+      task: "$4"
+      context: "$2"
+      plugin: "$1"

@@ -104,7 +104,7 @@ you must see successfully login message
 
 Clone the platform commponant via 
 
-git clone https://digitalforrest@dev.azure.com/digitalforrest/Elementrix/_git/elementrix.io
+git clone https://github.com/elementrix-io/elementrix-io
 
 once clone done run 
 
@@ -132,6 +132,8 @@ After successful deployment, you can access the various components at the follow
 |---------|-----|-------------|----------|----------|
 | **Elementrix Web Portal** | [http://your machine ip](http://localhost) | Main User Interface | sysowner@digitalforrest-me.com | 1 |
 | **Keycloak** | [http://your machine ip:8080](http://localhost:8080) | Identity & Access Management | admin | admin |
+| **Grafana** | [http://your machine ip:3000](http://localhost:3000) | Grafana Dashboards | admin | GHBjJdYT8CPUpBb3YZ7j |
+| **Prometheus** | [http://your machine ip:9090](http://localhost:9090) | Prometheus |  |  |
 
 
 ## ▶️ Cleanup Instructions
