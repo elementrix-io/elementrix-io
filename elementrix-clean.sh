@@ -9,6 +9,7 @@ NC='\033[0m'
 COMPOSE_FILES=(
   -f services-docker-compose.yml
   -f microservices-docker-compose.yml
+  -f monitoring-stack/docker-compose.yml
 )
 
 echo -e "${YELLOW}"
