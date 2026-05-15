@@ -24,6 +24,7 @@ services:
     networks: [elementrix]
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./monitoring-stack/grafana/provisioning:/etc/grafana/provisioning:ro
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=GHBjJdYT8CPUpBb3YZ7j
