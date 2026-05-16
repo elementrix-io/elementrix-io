@@ -8,4 +8,4 @@ scrape_configs:
       - targets: ["connect:9404"]
   - job_name: "kafka-connect-4.1.1"
     static_configs:
-      - targets: ["kafka-connect:9405"]
+      - targets: ["kafka-connect:9404"]
