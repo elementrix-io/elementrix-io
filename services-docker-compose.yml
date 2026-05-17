@@ -121,6 +121,26 @@ services:
       timeout: 5s
       retries: 60
       start_period: 60s
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    restart: always
+    depends_on: [kafka]
+    ports:
+      - "8085:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      # --- Enable Kafka Connect UI ---
+      KAFKA_CLUSTERS_0_KAFKA_CONNECT_0_NAME: DebeziumConnect
+      KAFKA_CLUSTERS_0_KAFKA_CONNECT_0_ADDRESS: http://connect:8083
+      KAFKA_CLUSTERS_0_KAFKA_CONNECT_1_NAME: DebeziumConnect2
+      KAFKA_CLUSTERS_0_KAFKA_CONNECT_1_ADDRESS: http://kafka-connect:8083
+      AUTH_TYPE: "LOGIN_FORM"
+      SPRING_SECURITY_USER_NAME: "admin"
+      SPRING_SECURITY_USER_PASSWORD: "admin"
+    networks:
+      - elementrix
   postgres:
     image: postgres:16
     container_name: postgres
