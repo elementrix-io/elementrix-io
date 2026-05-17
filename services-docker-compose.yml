@@ -6,6 +6,7 @@ services:
       - "9092:9092"
     environment:
       KAFKA_NODE_ID: 1
+      CLUSTER_ID: "NqnEdODVKkiLTfJvqd1uqQ"
       KAFKA_PROCESS_ROLES: "broker,controller"
       KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
       KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
@@ -81,7 +82,7 @@ services:
       start_period: 60s
 
   kafka-connect:
-    image: quay.io/debezium/connect:3.4.0.Final
+    image: quay.io/debezium/connect:3.4.2.Final
     container_name: kafka-connect
     restart: always
     depends_on:
