@@ -81,7 +81,7 @@ services:
       start_period: 60s
 
   kafka-connect:
-    image: quay.io/debezium/connect
+    image: quay.io/debezium/connect:3.4.0.Final
     container_name: kafka-connect
     restart: always
     depends_on:
