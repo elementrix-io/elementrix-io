@@ -150,4 +150,4 @@ chmod +x elementrix-clean.sh
 ```
 
 ## Impoertant Notes
-Please note you need license to run this platform please contact us for more information. please visit https://elementrix.io/elementrix/
+Please note you need license to run this platform please contact us for more information. please visit https://elementrix.io
