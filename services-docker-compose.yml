@@ -52,10 +52,10 @@ services:
       - "9404:9404" # Prometheus scrape endpoint
     environment:
       BOOTSTRAP_SERVERS: "kafka:29092"
-      GROUP_ID: "1"
-      CONFIG_STORAGE_TOPIC: "my_connect_configs"
-      OFFSET_STORAGE_TOPIC: "my_connect_offsets"
-      STATUS_STORAGE_TOPIC: "my_connect_status"
+      GROUP_ID: "connect"
+      CONFIG_STORAGE_TOPIC: "connect_old_configs"
+      OFFSET_STORAGE_TOPIC: "connect_old_offsets"
+      STATUS_STORAGE_TOPIC: "connect_old_status"
       KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
@@ -93,10 +93,10 @@ services:
       - "9405:9404" # Prometheus scrape endpoint
     environment:
       BOOTSTRAP_SERVERS: "kafka:29092"
-      GROUP_ID: "1"
-      CONFIG_STORAGE_TOPIC: "my_connect_configs"
-      OFFSET_STORAGE_TOPIC: "my_connect_offsets"
-      STATUS_STORAGE_TOPIC: "my_connect_status"
+      GROUP_ID: "kafka-connect"
+      CONFIG_STORAGE_TOPIC: "connect_oracle_configs"
+      OFFSET_STORAGE_TOPIC: "connect_oracle_offsets"
+      STATUS_STORAGE_TOPIC: "connect_oracle_status"
       KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
